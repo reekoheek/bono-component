@@ -1,0 +1,20 @@
+{
+  "name": "jafar/bono-component",
+  "description": "Bono components",
+  "version": "0.0.2",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ganesha",
+      "email": "reekoheek@gmail.com"
+    }
+  ],
+  "require": {
+    "reekoheek/util": ">=0.1.2"
+  },
+  "autoload": {
+    "psr-0": {
+      "ROH\\BonoComponent": "src/"
+    }
+  }
+}

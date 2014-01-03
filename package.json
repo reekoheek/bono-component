@@ -1,0 +1,13 @@
+{
+  "name": "bono-component",
+  "version": "0.0.1",
+  "description": "Bono components",
+  "repository": {},
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "pax": {
+    "grunt": {}
+  }
+}
