@@ -18,7 +18,7 @@ class PlainTable {
         $collection = \Norm\Norm::factory($clazz);
         $this->schema = $collection->schema();
 
-        $globalConfig = $this->app->config('component.table');
+        $globalConfig = $this->app->_config->get('component.table');
 
         if (!isset($config['actions'])) {
             if (isset($globalConfig['mapping'][$clazz]['actions'])) {
@@ -40,7 +40,7 @@ class PlainTable {
         $this->config = $config;
 
         $this->view = new \Slim\View();
-        $this->view->setTemplatesDirectory($this->app->config('templates.path'));
+        $this->view->setTemplatesDirectory($this->app->_config->get('app.templates.path'));
         $this->view->set('self', $this);
     }
 
