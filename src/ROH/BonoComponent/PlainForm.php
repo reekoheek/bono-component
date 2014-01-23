@@ -16,7 +16,7 @@ class PlainForm {
         $collection = \Norm\Norm::factory($clazz);
         $this->schema = $collection->schema();
 
-        $this->globalConfig = $this->app->config('component.form');
+        $this->globalConfig = $this->app->_config->get('component.form');
 
         $this->config = (isset($this->globalConfig['mapping'][$this->clazz])) ? $this->globalConfig['mapping'][$this->clazz] : NULL;
     }
