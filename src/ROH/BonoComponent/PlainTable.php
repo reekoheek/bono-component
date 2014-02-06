@@ -37,6 +37,10 @@ class PlainTable {
             }
         }
 
+        if (empty($this->schema) && empty($config['columns'])) {
+            throw new \Exception('Plain table needs collection schema or "component.table" configuration!');
+        }
+
         $this->config = $config;
 
         $this->view = new \Slim\View();
@@ -113,7 +117,8 @@ class PlainTable {
 
     public function show($entries) {
         $this->view->set('entries', $entries);
-        return $this->view->fetch('components/table.php');
+
+        return $this->app->theme->fetchWith($this->view, 'components/table.php');
     }
 
     public function isEmpty($entries) {
