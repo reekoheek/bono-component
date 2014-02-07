@@ -25,6 +25,8 @@ class PlainTable {
                 $config['actions'] = $globalConfig['mapping'][$clazz]['actions'];
             } elseif (isset($globalConfig['default']['actions'])) {
                 $config['actions'] = $globalConfig['default']['actions'];
+            } else {
+                $config['actions'] = array('read' => NULL, 'update' => NULL, 'delete' => NULL);
             }
         }
 
@@ -44,7 +46,7 @@ class PlainTable {
         $this->config = $config;
 
         $this->view = new \Slim\View();
-        $this->view->setTemplatesDirectory($this->app->config('templates.path'));
+        $this->view->setTemplatesDirectory(realpath(dirname(__FILE__).'/../../../templates'));
         $this->view->set('self', $this);
     }
 
@@ -118,7 +120,7 @@ class PlainTable {
     public function show($entries) {
         $this->view->set('entries', $entries);
 
-        return $this->app->theme->fetchWith($this->view, 'components/table.php');
+        return $this->view->fetch('table.php');
     }
 
     public function isEmpty($entries) {
